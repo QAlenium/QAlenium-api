@@ -1,0 +1,23 @@
+{
+  "name": "qalenium-api",
+  "version": "1.0.0",
+  "description": "QAlenium api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QAlenium/QAlenium-api.git"
+  },
+  "keywords": [
+    "qalenium",
+    "api"
+  ],
+  "author": "Gabriel Aguido Fraga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QAlenium/QAlenium-api/issues"
+  },
+  "homepage": "https://github.com/QAlenium/QAlenium-api#readme"
+}
