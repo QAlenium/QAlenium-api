@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/QAlenium/QAlenium-api/issues"
   },
-  "homepage": "https://github.com/QAlenium/QAlenium-api#readme"
+  "homepage": "https://github.com/QAlenium/QAlenium-api#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.3",
+    "pg": "^8.7.3"
+  }
 }

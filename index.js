@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8147;
 const token = new Buffer("4da7c74aa1ff200588c80a5dd253c0e6258ff5a1:").toString('base64');
 
 const client = new Client({
-  connectionString: "postgres://yhtyldtgvzumzf:f4871ba25accfa2325581643bd5884791b4ef7bfc5e8d684afb32ee2b9d7c09c@ec2-34-231-183-74.compute-1.amazonaws.com:5432/d74vgtoqchbta2",
+  connectionString: "postgres://mblpsprusrumzx:757c99be78da1f86a65f3d1aba2d1cb90c93e493c41efd148809c9630873b972@ec2-3-209-61-239.compute-1.amazonaws.com:5432/dfocse6bo2u09p",
   ssl: {
     rejectUnauthorized: false
   }
