@@ -174,8 +174,8 @@ app.get("/company/getCompanyList", async (req, res, next) => {
 
 app.post("/company/createCompany", async (req, res, next) => {
     let text = 'Request: ' + JSON.stringify(req.body);
-    let insert_company_query = 'INSERT INTO "companies" (name, logo, "flavourColor", loginGit, '
-loginApple', 'loginFacebook', 'loginEmail') VALUES (\'' + req.body.name + '\', \'' + req.body.logo + '\', \'' + req.body.flavourColor + '\', \'' + req.body.loginGit + '\', \'' + req.body.loginApple + '\', \'' + req.body.loginFacebook + '\', \'' + req.body.loginEmail + '\');';
+    let insert_company_query = 'INSERT INTO "companies" (name, logo, "flavourColor", loginGit, "
+loginApple", "loginFacebook", "loginEmail") VALUES (\'' + req.body.name + '\', \'' + req.body.logo + '\', \'' + req.body.flavourColor + '\', \'' + req.body.loginGit + '\', \'' + req.body.loginApple + '\', \'' + req.body.loginFacebook + '\', \'' + req.body.loginEmail + '\');';
     let response_text;
     console.log(text);
 
