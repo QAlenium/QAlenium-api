@@ -33,8 +33,8 @@ app.get("/listMethods", (req, res, next) => {
 	    "POST /company/createCompany",
         "POST /user/signin",
         "POST /user/signup",
-	    "PUT /user/updateUser/user_id",
-        "PUT /company/updateCompany/company_id"
+	    "PUT /user/updateUser/userId",
+        "PUT /company/updateCompany/companyId"
         ]
     );
 });
@@ -144,7 +144,7 @@ app.get("/sonarCloud/gabs", (req, res, next) => {
 
 app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
     let response_text;
-    let select_company_query = 'SELECT * FROM "companies" WHERE "company_id" = ' + req.params.id + ';';
+    let select_company_query = 'SELECT * FROM "companies" WHERE "companyId" = ' + req.params.id + ';';
     
     try {
         const select_company_query_result = await client.query(select_company_query);
@@ -174,7 +174,7 @@ app.get("/company/getCompanyList", async (req, res, next) => {
 
 app.post("/company/createCompany", async (req, res, next) => {
     let text = 'Request: ' + JSON.stringify(req.body);
-    let insert_company_query = 'INSERT INTO "companies" (name, logo, flavour_color, login_git, login_apple, login_facebook, login_email) VALUES (\'' + req.body.name + '\', \'' + req.body.logo + '\', \'' + req.body.flavour_color + '\', \'' + req.body.login_git + '\', \'' + req.body.login_apple + '\', \'' + req.body.login_facebook + '\', \'' + req.body.login_email + '\');';
+    let insert_company_query = 'INSERT INTO "companies" (name, logo, flavourColor, loginGit, loginApple, loginFacebook, loginEmail) VALUES (\'' + req.body.name + '\', \'' + req.body.logo + '\', \'' + req.body.flavourColor + '\', \'' + req.body.loginGit + '\', \'' + req.body.loginApple + '\', \'' + req.body.loginFacebook + '\', \'' + req.body.loginEmail + '\');';
     let response_text;
     console.log(text);
 
@@ -191,7 +191,7 @@ app.post("/company/createCompany", async (req, res, next) => {
 
 app.put("/company/updateCompany/:id", async (req, res, next) => {
     let text = 'Request: ' + JSON.stringify(req.body);
-    let update_company_query = 'UPDATE "companies" SET name = \'' + req.body.name + '\', logo = \'' + req.body.logo + '\', flavour_color = \'' + req.body.flavour_color + '\', login_git = \'' + req.body.login_git + '\', login_apple = \'' + req.body.login_apple + '\', login_facebook = \'' + req.body.login_facebook + '\', login_email = \'' + req.body.login_email + '\' WHERE "company_id" = \'' + req.params.id + '\';';
+    let update_company_query = 'UPDATE "companies" SET name = \'' + req.body.name + '\', logo = \'' + req.body.logo + '\', flavourColor = \'' + req.body.flavourColor + '\', loginGit = \'' + req.body.loginGit + '\', loginApple = \'' + req.body.loginApple + '\', loginFacebook = \'' + req.body.loginFacebook + '\', loginEmail = \'' + req.body.loginEmail + '\' WHERE "companyId" = \'' + req.params.id + '\';';
     let response_text;
     console.log(text);
     
@@ -208,7 +208,7 @@ app.put("/company/updateCompany/:id", async (req, res, next) => {
 
 app.put("/user/updateUser/:id", async (req, res, next) => {
     let text = 'Request: ' + JSON.stringify(req.body);
-    let update_user_query = 'UPDATE "users" SET auth = \'' + req.body.auth + '\', email = \'' + req.body.email + '\', company = \'' + req.body.company + '\', device_id = \'' + req.body.device_id + '\' WHERE "user_id" = \'' + req.params.id + '\';';
+    let update_user_query = 'UPDATE "users" SET auth = \'' + req.body.auth + '\', email = \'' + req.body.email + '\', company = \'' + req.body.company + '\', deviceId = \'' + req.body.deviceId + '\' WHERE "userId" = \'' + req.params.id + '\';';
     let response_text;
     console.log(text);
     
@@ -271,7 +271,7 @@ app.post("/user/signin", async (req, res, next) => {
 
 app.post("/user/signup", async (req, res, next) => {
     let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\';';
-    let insert_user_query = 'INSERT INTO "users" (auth, email, company, device_id) VALUES (\'' + new Buffer(req.body.email + ':' + req.body.auth).toString('base64') + '\', \'' + req.body.email + '\', \'' + req.body.company + '\', \'' + req.body.device_id + '\');';
+    let insert_user_query = 'INSERT INTO "users" (auth, email, company, deviceId) VALUES (\'' + new Buffer(req.body.email + ':' + req.body.auth).toString('base64') + '\', \'' + req.body.email + '\', \'' + req.body.company + '\', \'' + req.body.deviceId + '\');';
     let response_text;
 
     try {
