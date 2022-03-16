@@ -271,7 +271,7 @@ app.post("/user/signin", async (req, res, next) => {
 
 app.post("/user/signup", async (req, res, next) => {
     let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\';';
-    let insert_user_query = 'INSERT INTO "users" (auth, email, company, deviceId) VALUES (\'' + new Buffer(req.body.email + ':' + req.body.auth).toString('base64') + '\', \'' + req.body.email + '\', \'' + req.body.company + '\', \'' + req.body.deviceId + '\');';
+    let insert_user_query = 'INSERT INTO "users" ("auth", "email", "company", "deviceId") VALUES (\'' + new Buffer(req.body.email + ':' + req.body.auth).toString('base64') + '\', \'' + req.body.email + '\', \'' + req.body.company + '\', \'' + req.body.deviceId + '\');';
     let response_text;
 
     try {
