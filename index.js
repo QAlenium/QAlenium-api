@@ -144,13 +144,27 @@ app.get("/sonarCloud/gabs", (req, res, next) => {
 
 app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
     let response_text;
-    let select_company_query = 'SELECT * FROM "companies" WHERE "companyId" = ' + req.params.id + ';';
+    let select_user_query = 'SELECT * FROM "users" WHERE "deviceId" = ' + req.params.id + ';';
     
     try {
-        const select_company_query_result = await client.query(select_company_query);
-        let results = select_company_query_result.rows;
-        res.status(200).json(JSON.stringify(results));
-        console.log(JSON.stringify(results));
+        const select_user_query_result = await client.query(select_user_query);
+        let results = select_user_query_result.rows;
+
+        if (results == 0) {
+            res.status(200).json(JSON.stringify(results));
+            console.log(JSON.stringify(results));
+        } else {
+            let companies;
+            results.forEach(user => {
+                let select_company_query = 'SELECT * FROM "companies" WHERE "companyId" = ' + results.body.companyId + ';';
+                const select_company_query_result = await client.query(select_company_query);
+                let results = select_company_query_result.rows;
+                companies += [JSON.parse(results)];
+            });
+            res.status(200).json(results);
+            console.log(JSON.stringify(results));
+        }
+
     } catch (e) {
         res.status(500).json(e.detail);
         console.error(e.detail);
