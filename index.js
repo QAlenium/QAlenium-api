@@ -146,9 +146,13 @@ app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
     let response_text;
     let select_user_query = 'SELECT * FROM "users" WHERE "deviceId" = ' + req.params.id + ';';
     
+    console.log('before logic');
+
     try {
         const select_user_query_result = await client.query(select_user_query);
         let results = select_user_query_result.rows;
+
+        console.log('after query');
 
         if (results == 0) {
             console.log('results = 0');
