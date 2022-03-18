@@ -155,7 +155,7 @@ app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
             console.log(JSON.stringify(results));
         } else {
             let companies;
-            results.forEach(user => async {
+            results.forEach(async (user) => {
                 companies.push(await JSON.parse(client.query('SELECT * FROM "companies" WHERE "companyId" = ' + user.companyId + ';').rows));
             });
             res.status(200).json(results);
