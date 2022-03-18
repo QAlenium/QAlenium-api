@@ -153,6 +153,7 @@ app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
         if (results == 0) {
             res.status(200).json(JSON.stringify(results));
             console.log(JSON.stringify(results));
+            return;
         } else {
             let companies = [];
             console.log('Starting companies queries series');
@@ -161,9 +162,10 @@ app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
                 let select_companies_query_results = await client.query(select_companies_query);
                 companies.push(select_companies_query_results.rows);
             });
-            res.status(200).json(companies);
-            console.log(JSON.stringify(companies));
         }
+
+        res.status(200).json(companies);
+        console.log(JSON.stringify(companies));
 
     } catch (e) {
         console.log(e);
