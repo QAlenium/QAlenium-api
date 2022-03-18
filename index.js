@@ -157,11 +157,12 @@ app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
             return;
         } else {
             console.log('Starting companies queries series');
-            results.forEach(async (user) => {
+            
+            for (user of results) {
                 let select_companies_query = 'SELECT * FROM "companies" WHERE "companyId" = ' + user.companyId + ';';
                 let select_companies_query_results = await client.query(select_companies_query);
                 companies.push(select_companies_query_results.rows);
-            });
+            }
         }
 
         res.status(200).json(companies);
