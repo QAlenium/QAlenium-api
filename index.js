@@ -161,7 +161,7 @@ app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
                 let select_companies_query_results = await client.query(select_companies_query);
                 let company_result = select_companies_query_results.rows;
                 console.log(company_result);
-                companies.push(JSON.parse(company_result[0]));
+                companies.push(JSON.parse(company_result));
             });
             res.status(200).json(companies);
             console.log(JSON.stringify(companies));
