@@ -145,28 +145,21 @@ app.get("/sonarCloud/gabs", (req, res, next) => {
 app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
     let response_text;
     let select_user_query = 'SELECT * FROM "users" WHERE "deviceId" = ' + '\'' + req.params.id + '\'' + ';';
-    
-    console.log('before logic');
 
     try {
         const select_user_query_result = await client.query(select_user_query);
         let results = select_user_query_result.rows;
 
-        console.log('after query');
-
         if (results == 0) {
-            console.log('results = 0');
             res.status(200).json(JSON.stringify(results));
             console.log(JSON.stringify(results));
         } else {
-            console.log('results > 0');
             let companies;
             results.forEach(async (user) => {
                 companies.push(await JSON.parse(client.query('SELECT * FROM "companies" WHERE "companyId" = ' + user.companyId + ';').rows));
-                console.log('results pushed');
             });
-            res.status(200).json(results);
-            console.log(JSON.stringify(results));
+            res.status(200).json(companies);
+            console.log(JSON.stringify(companies));
         }
 
     } catch (e) {
