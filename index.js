@@ -272,7 +272,7 @@ app.post("/user/signin", async (req, res, next) => {
             return;
         }
 
-        if (select_auth_query_result.rows[0].auth == new Buffer(req.body.email + ':' + req.body.auth).toString('base64')) {
+        if (select_auth_query_result.rows[0].auth == req.body.auth) {
             response_text = "User authenticated successfully."
             res.status(200).json(response_text);
             console.log(JSON.stringify(response_text));
