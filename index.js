@@ -284,6 +284,7 @@ app.post("/user/signin", async (req, res, next) => {
             console.log(response_text);
         }
     } catch (e) {
+        console.log(e);
         res.status(500).json(e.detail);
         console.error(e.detail);
     }
