@@ -23,6 +23,7 @@
   "homepage": "https://github.com/QAlenium/QAlenium-api#readme",
   "dependencies": {
     "axios": "^0.26.1",
+    "crypto": "^1.0.1",
     "express": "^4.17.3",
     "pg": "^8.7.3"
   }
