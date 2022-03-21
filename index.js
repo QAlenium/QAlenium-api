@@ -202,6 +202,7 @@ app.post("/company/createCompany", async (req, res, next) => {
         res.status(200).json(JSON.stringify(results));
         console.log(JSON.stringify(results));
     } catch (e) {
+        console.error(e);
         res.status(500).json(e.detail);
         console.error(e.detail);
     }
