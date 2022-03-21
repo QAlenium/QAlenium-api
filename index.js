@@ -243,14 +243,14 @@ app.put("/user/updateUser/:id", async (req, res, next) => {
 });
 
 app.post("/user/signin", async (req, res, next) => {
-    let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\';';
+    let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\' AND "companyId" = \'' + req.body.companyId + '\';';
     let select_auth_query = 'SELECT "auth" from "users" where "email" = \'' + req.body.email + '\';';
     let response_text;
 
     try {
         const select_user_query_result = await client.query(select_user_query);
         if (select_user_query_result.rows == 0) {
-            response_text = 'Error: Email not registered';
+            response_text = 'Error: Email not registered for this company';
             console.log(response_text);
             res.status(500).json(response_text);
             return;
