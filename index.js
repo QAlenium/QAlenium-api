@@ -2,7 +2,6 @@ const axios = require('axios');
 const express = require("express");
 const { Client } = require('pg');
 const bodyParser = require('body-parser');
-const crypto = require('crypto');
 const app = express();
 
 const PORT = process.env.PORT || 8147;
@@ -290,9 +289,9 @@ app.post("/user/signin", async (req, res, next) => {
 });
 
 app.post("/user/signup", async (req, res, next) => {
-    console.log(crypto('sha512', req.body.email + ':' + req.body.auth));
+    console.log(req.body.auth);
     let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\';';
-    let insert_user_query = 'INSERT INTO "users" ("auth", "email", "companyId", "deviceId") VALUES (\'' + crypto('sha512', req.body.email + ':' + req.body.auth) + '\', \'' + req.body.email + '\', \'' + req.body.companyId + '\', \'' + req.body.deviceId + '\');';
+    let insert_user_query = 'INSERT INTO "users" ("auth", "email", "companyId", "deviceId") VALUES (\'' + req.body.auth + '\', \'' + req.body.email + '\', \'' + req.body.companyId + '\', \'' + req.body.deviceId + '\');';
     let response_text;
 
     try {
