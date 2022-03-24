@@ -191,7 +191,7 @@ app.get("/company/getCompanyList", async (req, res, next) => {
 
 app.get("/company/getCompanyByName/:name", async (req, res, next) => {
     let response_text;
-    let select_company_query = 'SELECT * from "companies" WHERE "companyId" = \'' + req.params.name + '\';';
+    let select_company_query = 'SELECT * from "companies" WHERE "name" = \'' + req.params.name + '\';';
 
     try {
         const select_company_query_result = await client.query(select_company_query);
