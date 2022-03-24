@@ -308,9 +308,8 @@ app.post("/user/signup", async (req, res, next) => {
             // validate valid json
             // validate all mandatory fields
             const insert_user_query_result = await client.query(insert_user_query);
-            response_text = 'User created successfully';
-            res.status(200).json(response_text);
-            console.log(response_text);
+            res.status(200).json(insert_user_query_result);
+            console.log(insert_user_query_result);
         }
     } catch (e) {
         res.status(500).json(e.detail);
