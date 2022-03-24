@@ -292,8 +292,9 @@ app.post("/user/signin", async (req, res, next) => {
 });
 
 app.post("/user/signup", async (req, res, next) => {
-    let select_user_query = 'SELECT * from "users" where "email" = req.body.email;';
-    let insert_user_query = "INSERT INTO 'users' ('auth', 'email', 'companyId', 'deviceId', 'isAdmin') VALUES (req.body.auth, req.body.email, req.body.companyId, req.body.deviceId, req.body.isAdmin);";
+    console.log(req.body.auth);
+    let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\';';
+    let insert_user_query = 'INSERT INTO "users" ("auth", "email", "companyId", "deviceId", "isAdmin") VALUES (\'' + req.body.auth + '\', \'' + req.body.email + '\', \'' + req.body.companyId + '\', \'' + req.body.deviceId + '\', \'' + req.body.isAdmin + '\');';
     let response_text;
 
     try {
@@ -307,11 +308,12 @@ app.post("/user/signup", async (req, res, next) => {
             // validate valid json
             // validate all mandatory fields
             const insert_user_query_result = await client.query(insert_user_query);
-            res.status(200).json(insert_user_query_result);
+            response_text = 'User created successfully';
+            res.status(200).json(response_text);
             console.log(response_text);
         }
     } catch (e) {
         res.status(500).json(e.detail);
-        console.error(e);
+        console.error(e.detail);
     }
 });
