@@ -189,6 +189,21 @@ app.get("/company/getCompanyList", async (req, res, next) => {
     }
 });
 
+app.get("/company/getCompanyByName/:name", async (req, res, next) => {
+    let response_text;
+    let select_company_query = 'SELECT * from "companies" WHERE "companyId" = \'' + req.params.name + '\';';
+
+    try {
+        const select_company_query_result = await client.query(select_company_query);
+        let results = select_company_query_result.rows;
+        res.status(200).json(results);
+        console.log(JSON.stringify(results));
+    } catch (e) {
+        res.status(500).json(e);
+        console.error(e);
+    }
+});
+
 app.post("/company/createCompany", async (req, res, next) => {
     let text = 'Request: ' + JSON.stringify(req.body);
     let insert_company_query = 'INSERT INTO "companies" ("name", "logo", "flavourColor", "loginGit", "loginApple", "loginFacebook", "loginEmail") VALUES (\'' + req.body.name + '\', \'' + req.body.logo + '\', \'' + req.body.flavourColor + '\', \'' + req.body.loginGit + '\', \'' + req.body.loginApple + '\', \'' + req.body.loginFacebook + '\', \'' + req.body.loginEmail + '\');';
@@ -306,7 +321,7 @@ app.post("/user/signup", async (req, res, next) => {
             const insert_user_query_result = await client.query(insert_user_query);
             response_text = 'User created successfully';
             res.status(200).json(response_text);
-            console.log(response_text);
+            console.log(insert_user_query_result);
         }
     } catch (e) {
         res.status(500).json(e);
