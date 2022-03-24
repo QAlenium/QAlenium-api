@@ -293,7 +293,7 @@ app.post("/user/signin", async (req, res, next) => {
 
 app.post("/user/signup", async (req, res, next) => {
     let select_user_query = 'SELECT * from "users" where "email" = req.body.email;';
-    let insert_user_query = 'INSERT INTO "users" ("auth", "email", "companyId", "deviceId", "isAdmin") VALUES (req.body.auth, req.body.email, req.body.companyId, req.body.deviceId, req.body.isAdmin);';
+    let insert_user_query = "INSERT INTO 'users' ('auth', 'email', 'companyId', 'deviceId', 'isAdmin') VALUES (req.body.auth, req.body.email, req.body.companyId, req.body.deviceId, req.body.isAdmin);";
     let response_text;
 
     try {
