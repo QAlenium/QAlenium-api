@@ -250,7 +250,7 @@ app.post("/user/signin", async (req, res, next) => {
     try {
         const select_user_query_result = await client.query(select_user_query);
         if (select_user_query_result.rows == 0) {
-            response_text = 'Error: Email not registered for this company';
+            response_text = 'Error: Email not registered into this company';
             console.log(response_text);
             res.status(500).json(response_text);
             return;
@@ -293,8 +293,8 @@ app.post("/user/signin", async (req, res, next) => {
 
 app.post("/user/signup", async (req, res, next) => {
     console.log(req.body.auth);
-    let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\';';
-    let insert_user_query = 'INSERT INTO "users" ("auth", "email", "companyId", "deviceId") VALUES (\'' + req.body.auth + '\', \'' + req.body.email + '\', \'' + req.body.companyId + '\', \'' + req.body.deviceId + '\');';
+    let select_user_query = 'SELECT * from "users" where "email" = req.body.email;';
+    let insert_user_query = 'INSERT INTO "users" ("auth", "email", "companyId", "deviceId", "isAdmin") VALUES' (req.body.auth, req.body.email, req.body.companyId, req.body.deviceId, req.body.isAdmin);';
     let response_text;
 
     try {
@@ -308,8 +308,7 @@ app.post("/user/signup", async (req, res, next) => {
             // validate valid json
             // validate all mandatory fields
             const insert_user_query_result = await client.query(insert_user_query);
-            response_text = 'User created successfully';
-            res.status(200).json(response_text);
+            res.status(200).json(insert_user_query_result);
             console.log(response_text);
         }
     } catch (e) {
