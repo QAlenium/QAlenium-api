@@ -311,7 +311,7 @@ app.post("/user/signup", async (req, res, next) => {
             console.log(response_text);
         }
     } catch (e) {
-        res.status(500).json(e);
-        console.error(e.detail);
+        res.status(500).json(e.detail);
+        console.error(e);
     }
 });
