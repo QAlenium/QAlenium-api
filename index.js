@@ -211,9 +211,9 @@ app.post("/company/createCompany", async (req, res, next) => {
         ' "loginEmail", "primaryLightColor", "primaryLightVariantColor", "secondaryLightColor",' +
         ' "secondaryLightVariantColor", "primaryDarkColor",' +
         ' "primaryDarkVariantColor",' +
-        ' "secondaryDarkColor", "secondaryDarkVariantColor"' +
-        ' "continuousQualityUrl", "ciCdUrl"' +
-        ' "boardKanbanUrl", "testingUrl"' +
+        ' "secondaryDarkColor", "secondaryDarkVariantColor",' +
+        ' "continuousQualityUrl", "ciCdUrl",' +
+        ' "boardKanbanUrl", "testingUrl",' +
         ' "messagingUrl") VALUES ' +
         '(\'' + req.body.name + '\', \'' + req.body.logo + '\', ' +
         '\'' + req.body.loginGit + '\', \'' + req.body.loginApple + '\', \'' + req.body.loginFacebook + '\', ' +
