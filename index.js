@@ -212,7 +212,7 @@ app.post("/company/createCompany", async (req, res, next) => {
         ' "secondaryLightVariantColor", "primaryDarkColor",' +
         ' "primaryDarkVariantColor",' +
         ' "secondaryDarkColor", "secondaryDarkVariantColor") VALUES ' +
-        '(\'' + req.body.name + '\', \'' + req.body.logo + '\', \'' + req.body.flavourColor + '\', ' +
+        '(\'' + req.body.name + '\', \'' + req.body.logo + '\', ' +
         '\'' + req.body.loginGit + '\', \'' + req.body.loginApple + '\', \'' + req.body.loginFacebook + '\', ' +
         '\'' + req.body.loginEmail + '\', \'' + req.body.primaryLightColor + '\', \'' + req.body.primaryLightVariantColor + '\', ' +
         '\'' + req.body.secondaryLightColor + '\', \'' + req.body.secondaryLightVariantColor + '\', \'' + req.body.primaryDarkColor + '\', ' +
