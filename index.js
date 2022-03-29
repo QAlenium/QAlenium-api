@@ -208,15 +208,15 @@ app.post("/company/createCompany", async (req, res, next) => {
     let text = 'Request: ' + JSON.stringify(req.body);
     let insert_company_query = 'INSERT INTO "companies" (' +
         '"name", "logo", "loginGit", "loginApple", "loginFacebook",' +
-        ' "loginEmail", "primaryLightColor", "primaryLightColorVariant", "secondaryLightColor",' +
-        ' "secondaryLightColorVariant", "primaryDarkColor",' +
-        ' "primaryDarkColorVariant",' +
-        ' "secondaryDarkColor", "secondaryDarkColorVariant") VALUES ' +
+        ' "loginEmail", "primaryLightColor", "primaryLightVariantColor", "secondaryLightColor",' +
+        ' "secondaryLightVariantColor", "primaryDarkColor",' +
+        ' "primaryDarkVariantColor",' +
+        ' "secondaryDarkColor", "secondaryDarkVariantColor") VALUES ' +
         '(\'' + req.body.name + '\', \'' + req.body.logo + '\', \'' + req.body.flavourColor + '\', ' +
         '\'' + req.body.loginGit + '\', \'' + req.body.loginApple + '\', \'' + req.body.loginFacebook + '\', ' +
-        '\'' + req.body.loginEmail + '\', \'' + req.body.primaryLightColor + '\', \'' + req.body.primaryLightColorVariant + '\', ' +
-        '\'' + req.body.secondaryLightColor + '\', \'' + req.body.secondaryLightColorVariant + '\', \'' + req.body.primaryDarkColor + '\', ' +
-        '\'' + req.body.primaryDarkColorVariant + '\', \'' + req.body.secondaryDarkColor + '\', \'' + req.body.secondaryDarkColorVariant + '\');';
+        '\'' + req.body.loginEmail + '\', \'' + req.body.primaryLightColor + '\', \'' + req.body.primaryLightVariantColor + '\', ' +
+        '\'' + req.body.secondaryLightColor + '\', \'' + req.body.secondaryLightVariantColor + '\', \'' + req.body.primaryDarkColor + '\', ' +
+        '\'' + req.body.primaryDarkVariantColor + '\', \'' + req.body.secondaryDarkColor + '\', \'' + req.body.secondaryDarkVariantColor + '\');';
     let response_text;
     console.log(text);
 
