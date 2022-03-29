@@ -206,7 +206,7 @@ app.get("/company/getCompanyByName/:name", async (req, res, next) => {
 
 app.post("/company/createCompany", async (req, res, next) => {
     let text = 'Request: ' + JSON.stringify(req.body);
-    let insert_company_query = 'INSERT INTO "companies" ( +
+    let insert_company_query = 'INSERT INTO "companies" (' +
         '"name", "logo", "loginGit", "loginApple", "loginFacebook",' +
         ' "loginEmail", "primaryLightColor", "primaryLightVariantColor", "secondaryLightColor",' +
         ' "secondaryLightVariantColor", "primaryDarkColor",' +
