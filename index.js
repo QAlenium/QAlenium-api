@@ -211,12 +211,17 @@ app.post("/company/createCompany", async (req, res, next) => {
         ' "loginEmail", "primaryLightColor", "primaryLightVariantColor", "secondaryLightColor",' +
         ' "secondaryLightVariantColor", "primaryDarkColor",' +
         ' "primaryDarkVariantColor",' +
-        ' "secondaryDarkColor", "secondaryDarkVariantColor") VALUES ' +
+        ' "secondaryDarkColor", "secondaryDarkVariantColor"' +
+        ' "continuousQualityUrl", "ciCdUrl"' +
+        ' "boardKanbanUrl", "testingUrl"' +
+        ' "messagingUrl") VALUES ' +
         '(\'' + req.body.name + '\', \'' + req.body.logo + '\', ' +
         '\'' + req.body.loginGit + '\', \'' + req.body.loginApple + '\', \'' + req.body.loginFacebook + '\', ' +
         '\'' + req.body.loginEmail + '\', \'' + req.body.primaryLightColor + '\', \'' + req.body.primaryLightVariantColor + '\', ' +
         '\'' + req.body.secondaryLightColor + '\', \'' + req.body.secondaryLightVariantColor + '\', \'' + req.body.primaryDarkColor + '\', ' +
-        '\'' + req.body.primaryDarkVariantColor + '\', \'' + req.body.secondaryDarkColor + '\', \'' + req.body.secondaryDarkVariantColor + '\');';
+        '\'' + req.body.primaryDarkVariantColor + '\', \'' + req.body.secondaryDarkColor + '\', \'' + req.body.secondaryDarkVariantColor + '\'' +
+        '\'' + req.body.continuousQualityUrl + '\', \'' + req.body.ciCdUrl + '\', \'' + req.body.boardKanbanUrl + '\'' +
+        '\'' + req.body.testingUrl + '\', \'' + req.body.messagingUrl + '\');';
     let response_text;
     console.log(text);
 
