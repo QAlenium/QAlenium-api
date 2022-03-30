@@ -317,21 +317,18 @@ app.post("/user/signin", async (req, res, next) => {
 
 });
 
-app.post("/user/signup", async (req, res, next) => {
-    let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\';';
+app.post("/user/signup/:companyId", async (req, res, next) => {
+    let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\' AND "companyId" = \'' + req.params.companyId + '\';';
     let insert_user_query = 'INSERT INTO "users" ("auth", "email", "companyId", "deviceId", "isAdmin") VALUES (\'' + req.body.auth + '\', \'' + req.body.email + '\', \'' + req.body.companyId + '\', \'' + req.body.deviceId + '\', \'' + req.body.isAdmin + '\');';
     let response_text;
 
     try {
         const select_user_query_result = await client.query(select_user_query);
         if (select_user_query_result.rows > 0) {
-            response_text = 'Error: email already taken';
+            response_text = 'Error: email already taken for this company';
             res.status(500).json(response_text);
             console.log(response_text);
         } else {
-            // validate valid email
-            // validate valid json
-            // validate all mandatory fields
             const insert_user_query_result = await client.query(insert_user_query);
             response_text = 'User created successfully';
             res.status(200).json(response_text);
