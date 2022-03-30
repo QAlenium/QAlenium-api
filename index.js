@@ -303,7 +303,7 @@ app.post("/user/signin", async (req, res, next) => {
             response_text = "User authenticated successfully."
             //return the user without password to not expose it
             var userJson = select_auth_query_result.rows[0];
-            userJson.auth = '*****';
+            //userJson.auth = '*****';
             res.status(200).json(userJson);
             console.log(JSON.stringify(response_text));
         } else {
