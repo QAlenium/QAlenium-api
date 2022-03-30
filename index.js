@@ -273,7 +273,7 @@ app.post("/user/signin", async (req, res, next) => {
     let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\' AND "companyId" = \'' + req.body.companyId + '\';';
     let select_auth_query = 'SELECT "auth" from "users" where "email" = \'' + req.body.email + '\';';
     let response_text;
-    const select_user_query_result;
+    let select_user_query_result;
 
     try {
         select_user_query_result = await client.query(select_user_query);
