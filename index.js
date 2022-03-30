@@ -273,9 +273,10 @@ app.post("/user/signin", async (req, res, next) => {
     let select_user_query = 'SELECT * from "users" where "email" = \'' + req.body.email + '\' AND "companyId" = \'' + req.body.companyId + '\';';
     let select_auth_query = 'SELECT "auth" from "users" where "email" = \'' + req.body.email + '\';';
     let response_text;
+    const select_user_query_result;
 
     try {
-        const select_user_query_result = await client.query(select_user_query);
+        select_user_query_result = await client.query(select_user_query);
         if (select_user_query_result.rows == 0) {
             response_text = 'Error: Email not registered into this company';
             console.log(response_text);
@@ -302,8 +303,8 @@ app.post("/user/signin", async (req, res, next) => {
         if (select_auth_query_result.rows[0].auth == req.body.auth) {
             response_text = "User authenticated successfully."
             //return the user without password to not expose it
-            var userJson = select_auth_query_result.rows[0];
-            //userJson.auth = '*****';
+            var userJson = select_user_query_result.rows[0];
+            userJson.auth = '*****';
             res.status(200).json(userJson);
             console.log(JSON.stringify(response_text));
         } else {
