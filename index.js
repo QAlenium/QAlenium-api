@@ -301,7 +301,10 @@ app.post("/user/signin", async (req, res, next) => {
 
         if (select_auth_query_result.rows[0].auth == req.body.auth) {
             response_text = "User authenticated successfully."
-            res.status(200).json(response_text);
+            //return the user without password to not expose it
+            var userJson = select_auth_query_result.rows[0];
+            userJson.auth = '*****';
+            res.status(200).json(userJson);
             console.log(JSON.stringify(response_text));
         } else {
             console.log(select_auth_query_result.rows[0].auth);
