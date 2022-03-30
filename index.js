@@ -324,8 +324,7 @@ app.post("/user/signup/:companyId", async (req, res, next) => {
 
     try {
         const select_user_query_result = await client.query(select_user_query);
-        console.log(select_user_query_result.rows);
-        if (select_user_query_result.rows > 0) {
+        if (select_user_query_result.rows.length > 0) {
             response_text = 'Error: email already taken for this company';
             res.status(500).json(response_text);
             console.log(response_text);
