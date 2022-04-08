@@ -246,7 +246,7 @@ app.put("/company/updateCompany/:id", async (req, res, next) => {
         ' "primaryDarkVariantColor" = \'' + req.body.primaryDarkVariantColor + '\',' +
         ' "secondaryDarkColor" = \'' + req.body.secondaryDarkColor + '\', "secondaryDarkVariantColor" = \'' + req.body.secondaryDarkVariantColor + '\',' +
         ' "continuousQualityUrl" = \'' + req.body.continuousQualityUrl + '\', "ciCdUrl" = \'' + req.body.ciCdUrl + '\',' +
-        ' "boardKanbanUrl" - \'' + req.body.boardKanbanUrl + '\', "testingUrl" = \'' + req.body.testingUrl + '\',' +
+        ' "boardKanbanUrl" = \'' + req.body.boardKanbanUrl + '\', "testingUrl" = \'' + req.body.testingUrl + '\',' +
         ' "messagingUrl" = \'' + req.body.messagingUrl + '\' WHERE "companyId" = \'' + req.params.id + '\';';
     let response_text;
     console.log(text);
