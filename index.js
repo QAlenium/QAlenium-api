@@ -237,7 +237,17 @@ app.post("/company/createCompany", async (req, res, next) => {
 
 app.put("/company/updateCompany/:id", async (req, res, next) => {
     let text = 'Request: ' + JSON.stringify(req.body);
-    let update_company_query = 'UPDATE "companies" SET name = \'' + req.body.name + '\', logo = \'' + req.body.logo + '\', flavourColor = \'' + req.body.flavourColor + '\', loginGit = \'' + req.body.loginGit + '\', loginApple = \'' + req.body.loginApple + '\', loginFacebook = \'' + req.body.loginFacebook + '\', loginEmail = \'' + req.body.loginEmail + '\' WHERE "companyId" = \'' + req.params.id + '\';';
+    let update_company_query = 'UPDATE "companies"' +
+        ' SET "name" = \'' + req.body.name + '\', "logo" = \'' + req.body.logo + '\', "loginGit" = \'' + req.body.loginGit + '\', "loginApple" = \'' + req.body.loginApple + '\',' +
+        ' "loginFacebook" = \'' + req.body.loginFacebook + '\',' +
+        ' "loginEmail" = \'' + req.body.loginEmail + '\', "primaryLightColor" = \'' + req.body.primaryLightColor + '\', "primaryLightVariantColor" = \'' + req.body.primaryLightVariantColor + '\',' +
+        ' "secondaryLightColor" = \'' + req.body.secondaryLightColor + '\',' +
+        ' "secondaryLightVariantColor" = \'' + req.body.secondaryLightVariantColor + '\', "primaryDarkColor" = \'' + req.body.primaryDarkColor + '\',' +
+        ' "primaryDarkVariantColor" = \'' + req.body.primaryDarkVariantColor + '\',' +
+        ' "secondaryDarkColor" = \'' + req.body.secondaryDarkColor + '\', "secondaryDarkVariantColor" = \'' + req.body.secondaryDarkVariantColor + '\',' +
+        ' "continuousQualityUrl" = \'' + req.body.continuousQualityUrl + '\', "ciCdUrl" = \'' + req.body.ciCdUrl + '\',' +
+        ' "boardKanbanUrl" - \'' + req.body.boardKanbanUrl + '\', "testingUrl" = \'' + req.body.testingUrl + '\',' +
+        ' "messagingUrl" = \'' + req.body.messagingUrl + '\' WHERE "companyId" = \'' + req.params.id + '\';';
     let response_text;
     console.log(text);
     
