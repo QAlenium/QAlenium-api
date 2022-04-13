@@ -6,7 +6,7 @@
 
 # QAlenium API
 #### See also our [Flutter Mobile app](https://github.com/QAlenium/QAlenium-mobile) and [Wearable](https://github.com/QAlenium/QAlenium-wearable) repositories
-A powerful & easy to use flutter (Android and iOS) app to manage your software integrations!
+API to QAlenium-related apps to use.
 
 #### To access our PaaS (Server) access [this link](https://heroku.com/dashboard?id=QAlenium)
 #### To access SonarCloud data use [this link](https://sonarcloud.io/project/overview?id=QAlenium_QAlenium-api)
