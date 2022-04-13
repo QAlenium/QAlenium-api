@@ -1,8 +1,8 @@
 ![banner](https://raw.github.com/kaapiel/Raw-content/master/api-banner.png)
 
-![Quality Gate Status](https://sonarcloud.io/dashboard?id=QAlenium_api)
+![Quality Gate Status](https://sonarcloud.io/project/overview?id=QAlenium_QAlenium-api)
 
-![CircleCI](https://img.shields.io/circleci/build/github/QAlenium/qalenium_api/main)
+![CircleCI](https://app.circleci.com/pipelines/github/QAlenium/QAlenium-api)
 
 # QAlenium API
 #### See also our [Flutter Mobile app](https://github.com/QAlenium/QAlenium-mobile) and [Wearable](https://github.com/QAlenium/QAlenium-wearable) repositories
@@ -10,7 +10,7 @@ API to QAlenium-related apps to use.
 
 #### To access our PaaS (Server) access [this link](https://heroku.com/dashboard?id=QAlenium)
 #### To access SonarCloud data use [this link](https://sonarcloud.io/project/overview?id=QAlenium_QAlenium-api)
-#### To access the pipeline and CI data use [this link](https://circleci.com/gh/QAlenium/QAlenium_api)
+#### To access the pipeline and CI data use [this link](https://app.circleci.com/pipelines/github/QAlenium/QAlenium-api)
 #### To access the non-functional test data use [this link](https://blazemeter.com/QAlenium_api)
 #### To access the functional test data use [this link](https://cypress.com/QAlenium_api)
 #### To access the project board use [this link](https://github.com/orgs/QAlenium/projects/3)
