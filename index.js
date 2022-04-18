@@ -2,6 +2,7 @@ const axios = require('axios');
 const express = require("express");
 const { Client } = require('pg');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 
 const PORT = process.env.PORT || 8147;
@@ -14,7 +15,9 @@ const client = new Client({
   }
 });
 
-app.use(bodyParser.json());
+app.use(cors({
+    origin: '*'
+}));
 
 client.connect();
 
@@ -142,7 +145,7 @@ app.get("/sonarCloud/gabs", (req, res, next) => {
         });
 });
 
-app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
+app.get("/company/getCompanyByDeviceId/:id", cors(), async (req, res, next) => {
     let response_text;
     let select_user_query = 'SELECT * FROM "users" WHERE "deviceId" = ' + '\'' + req.params.id + '\'' + ';';
 
