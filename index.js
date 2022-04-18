@@ -2,6 +2,7 @@ const axios = require('axios');
 const express = require("express");
 const { Client } = require('pg');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 
 const PORT = process.env.PORT || 8147;
@@ -14,7 +15,9 @@ const client = new Client({
   }
 });
 
-app.use(bodyParser.json());
+app.use(cors({
+    origin: '*'
+}));
 
 client.connect();
 
