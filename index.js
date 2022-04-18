@@ -145,7 +145,7 @@ app.get("/sonarCloud/gabs", (req, res, next) => {
         });
 });
 
-app.get("/company/getCompanyByDeviceId/:id", async (req, res, next) => {
+app.get("/company/getCompanyByDeviceId/:id", cors(), async (req, res, next) => {
     let response_text;
     let select_user_query = 'SELECT * FROM "users" WHERE "deviceId" = ' + '\'' + req.params.id + '\'' + ';';
 
