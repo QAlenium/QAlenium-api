@@ -318,8 +318,6 @@ app.post("/user/signin", async (req, res, next) => {
             res.status(200).json(userJson);
             console.log(JSON.stringify(response_text));
         } else {
-            console.log(select_auth_query_result.rows[0].auth);
-            console.log(req.body.auth);
             response_text = 'Error: Invalid credentials';
             res.status(500).json(response_text);
             console.log(response_text);
