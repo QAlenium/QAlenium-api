@@ -15,9 +15,7 @@ const client = new Client({
   }
 });
 
-app.use(cors({
-    origin: '*'
-}));
+app.use(bodyParser.json());
 
 client.connect();
 
