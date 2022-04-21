@@ -7,10 +7,7 @@ orbs:
 
 jobs:
   build:
-    executor:
-      name: linux
-      resource-class: medium
-      tag: 2022.03.1
+    executor: docker-executor
     working_directory: ~/project
     steps:
       - run:
