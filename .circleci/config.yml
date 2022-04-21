@@ -16,7 +16,7 @@ jobs:
           template: basic_success_1
 
 workflows:
-  build_and_test:
+  build:
     jobs:
       - build:
           filters:
