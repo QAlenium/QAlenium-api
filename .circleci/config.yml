@@ -6,13 +6,14 @@ orbs:
   slack: circleci/slack@4.9.3
 
 jobs:
-  steps:
-    - run:
-        name: Test command
-        command: ls
-    - slack/notify:
-        event: always
-        template: basic_success_1
+  build:
+    steps:
+      - run:
+          name: Test command
+          command: ls
+      - slack/notify:
+          event: always
+          template: basic_success_1
 
 workflows:
   build_and_test:
