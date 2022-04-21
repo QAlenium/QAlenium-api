@@ -7,6 +7,7 @@ orbs:
 
 jobs:
   build:
+    working_directory: ~/project
     steps:
       - run:
           name: Test command
